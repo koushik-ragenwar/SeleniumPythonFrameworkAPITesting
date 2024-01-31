@@ -9,7 +9,7 @@ from Utilities.BaseClass import BaseClass
 
 class TestUserLogin(BaseClass):
 
-    # marking up as a mark up for regression test suite
+    # marking up as a mark up for regression test suite.
     @pytest.mark.regression
     def test_UserLogin(self):
         # clicking blink text on login page
@@ -37,7 +37,7 @@ class TestUserLogin(BaseClass):
         # LoginWithCredentials.login(self, "contentadmin", "Ctadmin@1234")
         # self.getLogger().info("User is logged in sucessfully")
 
-    # marking up as a mark up for smoke test suite
+    # marking up as a mark up for smoke test suite.
     @pytest.mark.smoke
     def test_UserLoginUsing_Constructor(self):
         login_Process = LoginWithCredentials(self.driver)
