@@ -12,6 +12,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 @pytest.mark.usefixtures("setup")
 class BaseClass():
 
+    # Logger is used to print logs in html reports or in report portal
     def getLogger(self):
         loggerName = inspect.stack()[1][3]
         logger = logging.getLogger(loggerName)
@@ -27,9 +28,11 @@ class BaseClass():
         logger.setLevel(logging.CRITICAL)
         return logger
 
+    # verifying xpath element using explicit wait
     def verifyelementpresent(self, xpath):
         WebDriverWait(self.driver, 60).until(EC.presence_of_element_located((By.XPATH, xpath)))
 
+    # handling windows tab using window_handles method via selenium
     def managebrowsertab(self, index):
         windowsOpened = self.driver.window_handles
         self.driver.switch_to.window(windowsOpened[index])
