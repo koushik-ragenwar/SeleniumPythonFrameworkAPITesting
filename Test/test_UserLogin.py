@@ -12,25 +12,26 @@ class TestUserLogin(BaseClass):
     # marking up as a mark up for regression test suite.
     @pytest.mark.regression
     def test_UserLogin(self):
-        # clicking blink text on login page
+
+        # clicking blink text on login page.
         LoginWithCredentials.clickBlinkText(self)
 
-        # managing window tabs
+        # managing window tabs.
         self.managebrowsertab(1)
 
-        # storing string into variable
+        # storing string into variable.
         mailText = self.driver.find_element(By.XPATH, "//a[@href='mailto:mentor@rahulshettyacademy.com']").text
 
-        # printing text
+        # printing text.
         print(mailText)
 
-        # returning to main window
+        # returning to main window.
         self.managebrowsertab(0)
 
-        # entering the credentials in login page
+        # entering the credentials in login page.
         LoginWithCredentials.login(self, "test@test.com", "12345")
 
-        # grabing error text into variable
+        # grabing error text into variable.
         errorText = self.driver.find_element(By.XPATH, "//div[@class='alert alert-danger col-md-12']/strong").text
         print(errorText)
 
